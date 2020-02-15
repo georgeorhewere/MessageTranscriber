@@ -35,6 +35,7 @@
             this.btnTranscribe = new System.Windows.Forms.Button();
             this.txtResponse = new System.Windows.Forms.TextBox();
             this.txtServiceAcct = new System.Windows.Forms.Button();
+            this.lblElapsedTime = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -100,11 +101,21 @@
             this.txtServiceAcct.UseVisualStyleBackColor = true;
             this.txtServiceAcct.Click += new System.EventHandler(this.txtServiceAcct_Click);
             // 
+            // lblElapsedTime
+            // 
+            this.lblElapsedTime.AutoSize = true;
+            this.lblElapsedTime.Location = new System.Drawing.Point(80, 120);
+            this.lblElapsedTime.Name = "lblElapsedTime";
+            this.lblElapsedTime.Size = new System.Drawing.Size(35, 13);
+            this.lblElapsedTime.TabIndex = 4;
+            this.lblElapsedTime.Text = "label1";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.lblElapsedTime);
             this.Controls.Add(this.txtServiceAcct);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.lblAudioFile);
@@ -127,6 +138,7 @@
         private System.Windows.Forms.TextBox txtResponse;
         private System.Windows.Forms.Button btnTranscribe;
         private System.Windows.Forms.Button txtServiceAcct;
+        private System.Windows.Forms.Label lblElapsedTime;
     }
 }
 
