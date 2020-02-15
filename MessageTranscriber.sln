@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29709.97
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MessageTranscriber", "MessageTranscriber.csproj", "{DB844DAA-B15F-4150-99F5-68AC9CB7288F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DB844DAA-B15F-4150-99F5-68AC9CB7288F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DB844DAA-B15F-4150-99F5-68AC9CB7288F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DB844DAA-B15F-4150-99F5-68AC9CB7288F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DB844DAA-B15F-4150-99F5-68AC9CB7288F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F3DB4404-336A-4FBE-8D08-3745A7902F81}
+	EndGlobalSection
+EndGlobal
