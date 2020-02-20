@@ -8,15 +8,20 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Google.Cloud.Speech.V1;
+using MessageTranscriber.Models;
 
 namespace MessageTranscriber
 {
     public partial class Form1 : Form
     {
+        private GCPStorageManager manager;
         public Form1()
         {
+            
             InitializeComponent();
-          
+            manager = new GCPStorageManager();
+            manager.LoadCredentials();
+
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -43,7 +48,7 @@ namespace MessageTranscriber
                     LanguageCode = "en-US",
                     Model="video"
                    
-                }, RecognitionAudio.FromStorageUri("gs://rho-transcribe-files/EngagingMsg.mp3"));
+                }, RecognitionAudio.FromStorageUri("gs://rho-transcribe-files/EngaingthePowerofPrayerSmall.mp3"));
 
                 longOperation = longOperation.PollUntilCompleted();
                 var response = longOperation.Result;
@@ -68,11 +73,6 @@ namespace MessageTranscriber
             }
         }
 
-        private void txtServiceAcct_Click(object sender, EventArgs e)
-        {
-            this.openFileDialog1.Title = "Select Service Account File";
-            this.openFileDialog1.ShowDialog();
-            System.Environment.SetEnvironmentVariable("GOOGLE_APPLICATION_CREDENTIALS", this.openFileDialog1.FileName);
-        }
+      
     }
 }

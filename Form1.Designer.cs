@@ -99,7 +99,7 @@
             this.txtServiceAcct.TabIndex = 3;
             this.txtServiceAcct.Text = "Select Service Account File";
             this.txtServiceAcct.UseVisualStyleBackColor = true;
-            this.txtServiceAcct.Click += new System.EventHandler(this.txtServiceAcct_Click);
+            
             // 
             // lblElapsedTime
             // 
