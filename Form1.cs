@@ -20,7 +20,10 @@ namespace MessageTranscriber
             
             InitializeComponent();
             manager = new GCPStorageManager();
-            manager.LoadCredentials();
+            if (!manager.LoadCredentials())
+            {
+                MessageBox.Show("Select a settings file to connect to the associated gcp account.");
+            }
             
 
         }
@@ -33,9 +36,11 @@ namespace MessageTranscriber
             displayLoader(true);
             if (manager.UploadFile(this.openFileDialog1.FileName))
             {
-                this.lblAudioFile.Text = this.openFileDialog1.SafeFileName;
-
-               // MessageBox.Show("File Uploaded to Server");
+                this.lblAudioFile.Text = this.openFileDialog1.SafeFileName;                
+            }
+            else
+            {
+                this.lblAudioFile.Text = "There was an error saving your file!";
             }
             displayLoader(false);
         }
@@ -88,6 +93,20 @@ namespace MessageTranscriber
         {
             this.pictureBox1.Visible = isVisible;
 
+        }
+
+        private void addGCPSettingsFileToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.openFileDialog1.Title = "Select GCP credentials file";
+            this.openFileDialog1.ShowDialog();
+            if (manager.setExternalCredentialFile(this.openFileDialog1.FileName))
+            {
+                MessageBox.Show("GCP Credentials updated!", "Success");
+            }
+            else
+            {
+                MessageBox.Show("Unable to set credentials.", "Error");
+            }
         }
     }
 }
