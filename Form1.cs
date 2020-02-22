@@ -30,18 +30,21 @@ namespace MessageTranscriber
             this.openFileDialog1.Title = "Select Audio File";
             this.openFileDialog1.ShowDialog();
             
+            displayLoader(true);
             if (manager.UploadFile(this.openFileDialog1.FileName))
             {
                 this.lblAudioFile.Text = this.openFileDialog1.SafeFileName;
+
                // MessageBox.Show("File Uploaded to Server");
             }
+            displayLoader(false);
         }
 
         private void btnTranscribe_Click(object sender, EventArgs e)
         {
 
             // send speech to text request
-            pictureBox1.Visible = true;
+            displayLoader(true);
                 var watch = System.Diagnostics.Stopwatch.StartNew();
                 // the code that you want to measure comes here
                 
@@ -75,10 +78,16 @@ namespace MessageTranscriber
                 }
 
                 lblElapsedTime.Text = answer;
-            pictureBox1.Visible = false;
             
+            displayLoader(false);
+
         }
 
       
+        private void displayLoader(bool isVisible)
+        {
+            this.pictureBox1.Visible = isVisible;
+
+        }
     }
 }

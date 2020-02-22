@@ -48,7 +48,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(60, 12);
+            this.button1.Location = new System.Drawing.Point(60, 55);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(119, 30);
             this.button1.TabIndex = 0;
@@ -60,7 +60,7 @@
             // 
             this.lblAudioFile.AutoSize = true;
             this.lblAudioFile.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAudioFile.Location = new System.Drawing.Point(212, 21);
+            this.lblAudioFile.Location = new System.Drawing.Point(212, 64);
             this.lblAudioFile.Name = "lblAudioFile";
             this.lblAudioFile.Size = new System.Drawing.Size(0, 18);
             this.lblAudioFile.TabIndex = 1;
@@ -70,7 +70,7 @@
             this.groupBox1.Controls.Add(this.pictureBox1);
             this.groupBox1.Controls.Add(this.txtResponse);
             this.groupBox1.Controls.Add(this.btnTranscribe);
-            this.groupBox1.Location = new System.Drawing.Point(60, 87);
+            this.groupBox1.Location = new System.Drawing.Point(60, 130);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(708, 299);
             this.groupBox1.TabIndex = 2;
@@ -99,7 +99,7 @@
             // 
             this.lblElapsedTime.AutoSize = true;
             this.lblElapsedTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblElapsedTime.Location = new System.Drawing.Point(63, 49);
+            this.lblElapsedTime.Location = new System.Drawing.Point(63, 92);
             this.lblElapsedTime.Name = "lblElapsedTime";
             this.lblElapsedTime.Size = new System.Drawing.Size(0, 20);
             this.lblElapsedTime.TabIndex = 4;
@@ -107,12 +107,13 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(243, 20);
+            this.pictureBox1.Location = new System.Drawing.Point(190, 84);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(143, 103);
+            this.pictureBox1.Size = new System.Drawing.Size(226, 149);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox1.TabIndex = 5;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Visible = false;
             // 
             // Form1
             // 
