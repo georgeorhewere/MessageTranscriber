@@ -16,7 +16,7 @@ namespace MessageTranscriber.Models
 
     public class GCPStorageManager : IStorageManager
     {
-        private string credentialFile = "transroute-164919-669cdebab53.json";
+        private string credentialFile = "transroute-164919-669cdebab534.json";
         //private string credentialFile = "transroute-164919-669cdebab534.json";
         private string bucketName = "rho-transcribe-files";
         public bool LoadCredentials()
