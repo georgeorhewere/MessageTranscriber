@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Google.Cloud.Storage.V1;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -15,7 +16,8 @@ namespace MessageTranscriber.Models
 
     public class GCPStorageManager : IStorageManager
     {
-        private string credentialFile = "transroute-164919-c04f428a0f49.json";
+        private string credentialFile = "transroute-164919-669cdebab534.json";
+        private string bucketName = "rho-transcribe-files";
         public bool LoadCredentials()
         {
 
@@ -36,21 +38,24 @@ namespace MessageTranscriber.Models
 
         public bool UploadFile(string path)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var storage = StorageClient.Create();
+                using (var fileInstance = File.OpenRead(path))
+                {
+                    var fileName = Path.GetFileName(path);
+                    storage.UploadObject(bucketName, fileName, null, fileInstance);
+                    return true;
+                }
+
+            }
+            catch(Exception ex)
+            {
+                return false;
+            }            
         }
 
-        //    Google docs example
-        //private void UploadFile(string bucketName, string localPath,
-        //string objectName = null)
-        //    {
-        //        var storage = StorageClient.Create();
-        //        using (var f = File.OpenRead(localPath))
-        //        {
-        //            objectName = objectName ?? Path.GetFileName(localPath);
-        //            storage.UploadObject(bucketName, objectName, null, f);
-        //            Console.WriteLine($"Uploaded {objectName}.");
-        //        }
-        //    }
+  
     }
 
 }

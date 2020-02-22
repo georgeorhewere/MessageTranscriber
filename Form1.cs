@@ -21,6 +21,7 @@ namespace MessageTranscriber
             InitializeComponent();
             manager = new GCPStorageManager();
             manager.LoadCredentials();
+            
 
         }
 
@@ -28,15 +29,19 @@ namespace MessageTranscriber
         {
             this.openFileDialog1.Title = "Select Audio File";
             this.openFileDialog1.ShowDialog();
-            this.lblAudioFile.Text = this.openFileDialog1.SafeFileName;
+            
+            if (manager.UploadFile(this.openFileDialog1.FileName))
+            {
+                this.lblAudioFile.Text = this.openFileDialog1.SafeFileName;
+               // MessageBox.Show("File Uploaded to Server");
+            }
         }
 
         private void btnTranscribe_Click(object sender, EventArgs e)
         {
 
-            if(this.openFileDialog1.FileNames.Length > 0)
-            {
-                // send speech to text request
+            // send speech to text request
+            pictureBox1.Visible = true;
                 var watch = System.Diagnostics.Stopwatch.StartNew();
                 // the code that you want to measure comes here
                 
@@ -48,7 +53,7 @@ namespace MessageTranscriber
                     LanguageCode = "en-US",
                     Model="video"
                    
-                }, RecognitionAudio.FromStorageUri("gs://rho-transcribe-files/EngaingthePowerofPrayerSmall.mp3"));
+                }, RecognitionAudio.FromStorageUri("gs://rho-transcribe-files/"+ this.openFileDialog1.SafeFileName));
 
                 longOperation = longOperation.PollUntilCompleted();
                 var response = longOperation.Result;
@@ -70,7 +75,8 @@ namespace MessageTranscriber
                 }
 
                 lblElapsedTime.Text = answer;
-            }
+            pictureBox1.Visible = false;
+            
         }
 
       

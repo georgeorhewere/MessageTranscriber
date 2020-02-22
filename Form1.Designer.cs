@@ -28,15 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.button1 = new System.Windows.Forms.Button();
             this.lblAudioFile = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.btnTranscribe = new System.Windows.Forms.Button();
             this.txtResponse = new System.Windows.Forms.TextBox();
-            this.txtServiceAcct = new System.Windows.Forms.Button();
+            this.btnTranscribe = new System.Windows.Forms.Button();
             this.lblElapsedTime = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // openFileDialog1
@@ -46,7 +48,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(80, 77);
+            this.button1.Location = new System.Drawing.Point(60, 12);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(119, 30);
             this.button1.TabIndex = 0;
@@ -57,21 +59,31 @@
             // lblAudioFile
             // 
             this.lblAudioFile.AutoSize = true;
-            this.lblAudioFile.Location = new System.Drawing.Point(214, 77);
+            this.lblAudioFile.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAudioFile.Location = new System.Drawing.Point(212, 21);
             this.lblAudioFile.Name = "lblAudioFile";
-            this.lblAudioFile.Size = new System.Drawing.Size(0, 13);
+            this.lblAudioFile.Size = new System.Drawing.Size(0, 18);
             this.lblAudioFile.TabIndex = 1;
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.pictureBox1);
             this.groupBox1.Controls.Add(this.txtResponse);
             this.groupBox1.Controls.Add(this.btnTranscribe);
-            this.groupBox1.Location = new System.Drawing.Point(60, 139);
+            this.groupBox1.Location = new System.Drawing.Point(60, 87);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(708, 299);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Transcribe";
+            // 
+            // txtResponse
+            // 
+            this.txtResponse.Location = new System.Drawing.Point(6, 49);
+            this.txtResponse.Multiline = true;
+            this.txtResponse.Name = "txtResponse";
+            this.txtResponse.Size = new System.Drawing.Size(696, 244);
+            this.txtResponse.TabIndex = 1;
             // 
             // btnTranscribe
             // 
@@ -83,32 +95,24 @@
             this.btnTranscribe.UseVisualStyleBackColor = true;
             this.btnTranscribe.Click += new System.EventHandler(this.btnTranscribe_Click);
             // 
-            // txtResponse
-            // 
-            this.txtResponse.Location = new System.Drawing.Point(6, 49);
-            this.txtResponse.Multiline = true;
-            this.txtResponse.Name = "txtResponse";
-            this.txtResponse.Size = new System.Drawing.Size(696, 244);
-            this.txtResponse.TabIndex = 1;
-            // 
-            // txtServiceAcct
-            // 
-            this.txtServiceAcct.Location = new System.Drawing.Point(80, 48);
-            this.txtServiceAcct.Name = "txtServiceAcct";
-            this.txtServiceAcct.Size = new System.Drawing.Size(146, 23);
-            this.txtServiceAcct.TabIndex = 3;
-            this.txtServiceAcct.Text = "Select Service Account File";
-            this.txtServiceAcct.UseVisualStyleBackColor = true;
-            
-            // 
             // lblElapsedTime
             // 
             this.lblElapsedTime.AutoSize = true;
-            this.lblElapsedTime.Location = new System.Drawing.Point(80, 120);
+            this.lblElapsedTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblElapsedTime.Location = new System.Drawing.Point(63, 49);
             this.lblElapsedTime.Name = "lblElapsedTime";
-            this.lblElapsedTime.Size = new System.Drawing.Size(35, 13);
+            this.lblElapsedTime.Size = new System.Drawing.Size(0, 20);
             this.lblElapsedTime.TabIndex = 4;
-            this.lblElapsedTime.Text = "label1";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(243, 20);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(143, 103);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBox1.TabIndex = 5;
+            this.pictureBox1.TabStop = false;
             // 
             // Form1
             // 
@@ -116,14 +120,14 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.lblElapsedTime);
-            this.Controls.Add(this.txtServiceAcct);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.lblAudioFile);
             this.Controls.Add(this.button1);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Audio to Text Transcriber";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -137,8 +141,8 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TextBox txtResponse;
         private System.Windows.Forms.Button btnTranscribe;
-        private System.Windows.Forms.Button txtServiceAcct;
         private System.Windows.Forms.Label lblElapsedTime;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 
