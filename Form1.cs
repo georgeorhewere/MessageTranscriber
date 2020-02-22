@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -30,6 +31,7 @@ namespace MessageTranscriber
 
         private void button1_Click(object sender, EventArgs e)
         {
+            this.lblAudioFile.Text = string.Empty;
             this.openFileDialog1.Title = "Select Audio File";
             this.openFileDialog1.ShowDialog();
             
@@ -68,7 +70,7 @@ namespace MessageTranscriber
                 watch.Stop();
                 var elapsedMs = watch.ElapsedMilliseconds;
                 TimeSpan t = TimeSpan.FromMilliseconds(elapsedMs);
-                string answer = string.Format("{0:D2}h:{1:D2}m:{2:D2}s:{3:D3}ms",
+                string processTime = string.Format("{0:D2}h:{1:D2}m:{2:D2}s:{3:D3}ms",
                                         t.Hours,
                                         t.Minutes,
                                         t.Seconds,
@@ -82,9 +84,11 @@ namespace MessageTranscriber
                     }
                 }
 
-                lblElapsedTime.Text = answer;
+                lblElapsedTime.Text = processTime;
             
             displayLoader(false);
+            SaveTextToFile();
+            
 
         }
 
@@ -106,6 +110,22 @@ namespace MessageTranscriber
             else
             {
                 MessageBox.Show("Unable to set credentials.", "Error");
+            }
+        }
+
+
+        private void SaveTextToFile()
+        {
+            using (var sfd = new SaveFileDialog())
+            {
+                sfd.Filter = "txt files (*.txt)|*.txt|All files (*.*)|*.*";
+                sfd.FilterIndex = 2;
+
+                if (sfd.ShowDialog() == DialogResult.OK)
+                {
+                    File.WriteAllText(sfd.FileName, txtResponse.Text);
+                    MessageBox.Show(sfd.FileName + " Saved!", "Success");
+                }
             }
         }
     }
